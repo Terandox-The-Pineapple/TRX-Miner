@@ -15,7 +15,5 @@ shell.run("pastebin get qqRYGimt TRX-Miner")
 shell.run("Clear")
 if fs.exists("trx-miner-version-check") then shell.run("delete trx-miner-version-check") end
 if fs.exists("TRX-Miner-Update") then shell.run("delete TRX-Miner-Update") end
-if fs.exists("trx-miner.changelog") then shell.run("delete trx-miner.changelog") end
-shell.run("pastebin get T5u9GbK5 trx-miner.changelog")
 shell.run("TRX-Miner")
 return 0
