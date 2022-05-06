@@ -142,7 +142,8 @@ function main()
 	if run_amount == nil then return show_help()
 	elseif run_amount == "config" then return shell.run("edit trx-miner.conf")
 	elseif run_amount == "version" then return show_version(false)
-	elseif run_amount == "changelog" then return shell.run("edit trx-miner.changelog")
+	elseif run_amount == "setup" then return help_setup(false)
+	elseif run_amount == "storage" then return help_storage(false)
 	elseif only_vein_mining == true then
 		if needFuel(1000) == false then return scan_me_senpai()
 		else return false end
@@ -202,10 +203,9 @@ function show_help()
 	print("Choose 1 option:\n"..
 		"1: config\n"..
 		"2: version\n"..
-		"3: changelog\n"..
-		"4: setup\n"..
-		"5: storage\n"..
-		"6: update\n"..
+		"3: setup\n"..
+		"4: storage\n"..
+		"5: update\n"..
 		"Q: Quit\n")
 	local target = read()
 	if target == "Q" or target == "q" then return true end
@@ -214,14 +214,13 @@ function show_help()
 	elseif target == 2 then 
 		if show_version(true) then return show_help()
 		else return true end
-	elseif target == 3 then return shell.run("edit trx-miner.changelog")
-	elseif target == 4 then
+	elseif target == 3 then
 		if help_setup(true) then return show_help()
 		else return true end
-	elseif target == 5 then
+	elseif target == 4 then
 		if help_storage(true) then return show_help()
 		else return true end
-	elseif target == 6 then
+	elseif target == 5 then
 		if (1*new_version) > (1*my_version) then
 			data_lib.set("version",new_version,"trx-miner.version")
 			shell.run("pastebin get q3ag7ufz trx-miner.update")
