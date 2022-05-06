@@ -223,7 +223,7 @@ function show_help()
 	elseif target == 5 then
 		if (1*new_version) > (1*my_version) then
 			data_lib.set("version",new_version,"trx-miner.version")
-			shell.run("pastebin get q3ag7ufz trx-miner.update")
+			shell.run("pastebin get gzweJyen trx-miner.update")
 			shell.run("trx-miner.update")
 			return true
 		else return show_help() end
