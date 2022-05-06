@@ -274,6 +274,7 @@ function use_storage(round)
 		do_turn_left()
 		turtle.forward()
 		do_turn_right()
+		turtle.up()
 	end
 	if funny_chunk_loading then
 		make_way()
@@ -288,13 +289,13 @@ function use_storage(round)
 		do_turn_right()
 		turtle.forward()
 		do_turn_left()
+		turtle.down()
 	end
 	storage_interact()
 	if funny_chunk_loading then
 		turtle.up()
 		move_forward(2)
 		do_turn_left()
-		turtle.down()
 		turtle.forward()
 		do_turn_left()
 		move_forward(round*length)
@@ -302,6 +303,7 @@ function use_storage(round)
 		turtle.forward()
 		do_turn_right()
 		move_forward(2)
+		turtle.down()
 	else
 		do_turn()
 		move_forward(round*length)
@@ -310,7 +312,11 @@ end
 
 function make_way()
 	if turtle.detectDown() == false then
-		do_replace("D")
+		turtle.down()
+		if turtle.detectDown() == false then
+			do_replace("D")
+		end
+		turtle.up()
 	end
 end
 
@@ -679,8 +685,10 @@ function t_rotate(my_table, direction)
 end
 
 function place_torch()
+	do_turn()
 	turtle.select(1)
-	turtle.placeUp()
+	turtle.place()
+	do_turn()
 end
 
 function dig_forward(amount)
