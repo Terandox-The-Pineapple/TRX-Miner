@@ -1040,14 +1040,24 @@ function do_dig()
 			turtle.drop()
 		end
 	end
-	local done = false
-	while done == false do
+	while true do
 		if turtle.detect() == true then
-			turtle.select(16)
-			turtle.dig()
-			turtle.drop()
+			local check, block_data = turtle.inspect()
+			if check then
+				if is_in_whitelist(whitelist_only_vein_mining,block_data) and only_vein_mining then
+					turtle.select(1)
+					turtle.dig()
+				elseif is_in_whitelist(whitelist_drops,data) and only_vein_mining == false then
+					turtle.select(1)
+					turtle.dig()
+				else
+					turtle.select(16)
+					turtle.dig()
+					turtle.drop()
+				end
+			end
 		else
-			done = true
+			break
 		end
 	end
 end
