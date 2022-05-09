@@ -22,7 +22,7 @@ local tunnel_spacing = 3
 local funny_chunk_loading = false
 local replace_lava = false
 local filler_slots = 2
-if fs.exists("data") == false then shell.run("pastebin get F6qPCGfQ data") end
+if fs.exists("data") == false then shell.run("wget https://raw.githubusercontent.com/Terandox-The-Pineapple/TRX-Librarys/main/data.lua data") end
 local data_lib = require("data")
 
 local scan_log = fs.open("trx-miner.log","w")
@@ -122,13 +122,13 @@ else
 	my_version = data_lib.get("version","trx-miner.version")
 end
 if fs.exists("trx-miner.cversion") == true then shell.run("delete trx-miner.cversion") end
-shell.run("pastebin get sNT5F4BB trx-miner.cversion")
+shell.run("wget https://raw.githubusercontent.com/Terandox-The-Pineapple/TRX-Miner/main/TRX-Miner-Version.lua trx-miner.cversion")
 shell.run("trx-miner.cversion")
 local new_version = data_lib.get("version","trx-miner.cversion")
 
 if (1*new_version) > (1*my_version) and run_amount=="update" then
 	data_lib.set("version",new_version,"trx-miner.version")
-	shell.run("pastebin get gzweJyen trx-miner.update")
+	shell.run("wget https://raw.githubusercontent.com/Terandox-The-Pineapple/TRX-Miner/main/TRX-Miner-Update.lua trx-miner.update")
 	shell.run("trx-miner.update")
 	return true
 else
@@ -223,7 +223,7 @@ function show_help()
 	elseif target == 5 then
 		if (1*new_version) > (1*my_version) then
 			data_lib.set("version",new_version,"trx-miner.version")
-			shell.run("pastebin get gzweJyen trx-miner.update")
+			shell.run("wget https://raw.githubusercontent.com/Terandox-The-Pineapple/TRX-Miner/main/TRX-Miner-Update.lua trx-miner.update")
 			shell.run("trx-miner.update")
 			return true
 		else return show_help() end
