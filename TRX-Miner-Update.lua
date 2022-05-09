@@ -11,7 +11,7 @@ if fs.exists("trx-miner-version") == true then
 	shell.run("delete trx-miner-version")
 end
 if fs.exists("log.lua") == true then shell.run("delete log.lua") end
-shell.run("pastebin get qqRYGimt TRX-Miner")
+shell.run("wget https://raw.githubusercontent.com/Terandox-The-Pineapple/TRX-Miner/main/TRX-Miner.lua TRX-Miner")
 shell.run("Clear")
 if fs.exists("trx-miner-version-check") then shell.run("delete trx-miner-version-check") end
 if fs.exists("TRX-Miner-Update") then shell.run("delete TRX-Miner-Update") end
