@@ -8,4 +8,4 @@ You could install my scripts without it, but this could
 lead to naming issues and so could break the integrated
 update systems of my scripts.
 
-You can get TRX-Loader here: https://pastebin.com/aE7KFWJc
+You can get TRX-Loader here: https://github.com/Terandox-The-Pineapple/TRX-Loader
