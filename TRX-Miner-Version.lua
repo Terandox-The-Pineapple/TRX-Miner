@@ -1,6 +1,6 @@
 local data = require("data")
 
-local version = 1.26
+local version = 1.27
 
-if fs.exists("trx-miner-version") then data.set("version",version,"trx-miner-version-check")
-elseif fs.exists("trx-miner.version") then data.set("version",version,"trx-miner.cversion") end
+if fs.exists("trx-miner-version") then data.set("version", version, "trx-miner-version-check")
+elseif fs.exists("trx-miner.version") then data.set("version", version, "trx-miner.cversion") end
